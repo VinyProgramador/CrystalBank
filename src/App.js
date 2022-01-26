@@ -1,8 +1,9 @@
 import { useState } from "react";
 import React from "react";
-import gem from './assets/gem.svg'
 import logo from './img/logo.png'
 import './styles.css'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Login from './login';
 
 function App() {
   const [number, setConta] = useState("")
@@ -10,11 +11,18 @@ function App() {
 
 
   return (
+
     <div className="container">
       <div className="container-login">
         <div className="wrap-login">
           <form className="login-form">
             <h3 className="login-form-title">CrystalBank</h3>
+
+            <main>
+              <Switch>
+                   <Route path="/page2" component={Login} />
+              </Switch>
+            </main>
 
 
             <span className="login-form-title">
@@ -32,7 +40,9 @@ function App() {
             </div>
 
             <div className="container-login-form-btn">
-            <input class="btn" type="submit" value="Entrar"/>
+              <Link href="#">
+                <input class="btn" type="submit" value="Entrar" />
+              </Link>
             </div>
 
             <div className="text-center">
